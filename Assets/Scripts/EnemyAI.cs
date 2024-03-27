@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -90,5 +89,18 @@ public class EnemyAI : MonoBehaviour
         {
             _navMeshAgent.destination = player.transform.position;
         }
+    }
+
+    [SerializeField] RoomController enemyRoom;
+
+    private void Awake()
+    {
+        enemyRoom.enemyCount++;
+        _navMeshAgent = GetComponent<NavMeshAgent>();
+    }
+
+    public void OnDestroy()
+    {
+        enemyRoom.ReduceEnemyCount();
     }
 }

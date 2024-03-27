@@ -6,7 +6,6 @@ public class FinishScript : MonoBehaviour
 {
     public int allEnemiesCount;
 
-    [SerializeField] AudioSource endGameSound;
     [SerializeField] GameObject winPanel;
 
     private void Start()
@@ -24,9 +23,7 @@ public class FinishScript : MonoBehaviour
 
     private void Finish()
     {
-        endGameSound.PlayOneShot(endGameSound.clip);
-
-        Invoke(nameof(Pause), 5f);
+        Invoke(nameof(Pause), 2f);
     }
 
     private void Pause()
